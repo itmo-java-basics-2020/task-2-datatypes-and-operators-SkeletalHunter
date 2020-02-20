@@ -25,7 +25,7 @@ public class Task2 {
      * Даны 2 целых числа. Проверьте равны ли они
      */
     boolean testIfIntsEqual(Integer a, Integer b) {
-        return a == b;
+        return a.equals(b);
     }
 
     /**
@@ -37,14 +37,22 @@ public class Task2 {
      * @param rightBound  верхняя граница диапазона
      * @param inclusively входят ли границы в заданный даипазон
      */
-    boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
-        if(number > leftBound || number < rightBound){
+    boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively)
+    {
+        if (number == null || leftBound == null || rightBound == null || inclusively == null)
+        {
+            return false;
+        } else {
+            if(number > leftBound && number < rightBound)
+            {
             return true;
-        } else{
-            if((number == leftBound || number == rightBound) && inclusively){
-                return true;
             } else{
+                if((number == leftBound || number == rightBound) && inclusively)
+                {
+                return true;
+                } else{
                 return false;
+                }
             }
         }
     }
@@ -53,16 +61,16 @@ public class Task2 {
      * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9
      */
     boolean atLeastOneIsDigit(char c1, char c2, char c3) {
-        return (((int)c1 >= (int)'1') && ((int)c1 <= (int)'9')) ||
-                (((int)c2 >= (int)'1') && ((int)c2 <= (int)'9')) ||
-                (((int)c3 >= (int)'1') && ((int)c3 <= (int)'9'));
+        return (((int)c1 >= (int)'0') && ((int)c1 <= (int)'9')) ||
+                (((int)c2 >= (int)'0') && ((int)c2 <= (int)'9')) ||
+                (((int)c3 >= (int)'0') && ((int)c3 <= (int)'9'));
     }
 
     /**
      * Даны два вещественных числа. Определите равны ли они
      */
     boolean areRealNumbersEqual(double a, double b) {
-        return a == b;
+        return a - b <= 0.00000001;
     }
 
     /**
